@@ -1,7 +1,7 @@
 import styles from "../App.module.css"
 import ToDoItem from "./ToDoItem.jsx"
 
-export default function ToDoList({ tasks, onRemove, onToggleCheck }) {
+export default function ToDoList({ tasks, onRemove, onToggleCheck, onEdit }) {
   if (tasks.length === 0) {
     return (
       <div>
@@ -30,7 +30,13 @@ export default function ToDoList({ tasks, onRemove, onToggleCheck }) {
       <div className={styles.tasksContainer}>
         <ul className={styles.ulList}>
           {tasks.map((task) => (
-            <ToDoItem key={task.id} task={task} onRemove={onRemove} onToggleCheck={onToggleCheck} />
+            <ToDoItem
+              key={task.id}
+              task={task}
+              onRemove={onRemove}
+              onToggleCheck={onToggleCheck}
+              onEdit={onEdit}
+            />
           ))}
         </ul>
       </div>
